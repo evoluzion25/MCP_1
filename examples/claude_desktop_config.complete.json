@@ -57,13 +57,20 @@
       "command": "C:\\Program Files\\nodejs\\node.exe",
       "args": [
         "C:\\DevWorkspace\\MCP_1\\servers\\mcp-puppeteer\\src\\server.js"
-      ]
+      ],
+      "env": {
+        "PUPPETEER_EXECUTABLE_PATH": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      }
     },
     "mcp-playwright": {
       "command": "C:\\Program Files\\nodejs\\node.exe",
       "args": [
         "C:\\DevWorkspace\\MCP_1\\servers\\mcp-playwright\\src\\server.js"
-      ]
+      ],
+      "env": {
+        "PLAYWRIGHT_CHANNEL": "msedge",
+        "PLAYWRIGHT_HEADLESS": "true"
+      }
     }
   }
 }
