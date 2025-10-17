@@ -1,0 +1,135 @@
+{
+  "_comment": "Master MCP Server Configuration - Source of truth for all platforms",
+  "_version": "1.0.0",
+  "_lastUpdated": "2025-10-17",
+  "servers": {
+    "mcp-puppeteer": {
+      "type": "local",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-puppeteer\\src\\server.js"
+      ],
+      "env": {
+        "PUPPETEER_EXECUTABLE_PATH": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      "description": "Browser automation via Puppeteer with Microsoft Edge",
+      "platforms": ["claude", "lmstudio", "anythingllm"]
+    },
+    "mcp-playwright": {
+      "type": "local",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-playwright\\src\\server.js"
+      ],
+      "env": {
+        "PLAYWRIGHT_CHANNEL": "msedge",
+        "PLAYWRIGHT_HEADLESS": "true"
+      },
+      "description": "Browser automation via Playwright with Microsoft Edge",
+      "platforms": ["claude", "lmstudio", "anythingllm"]
+    },
+    "memory": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "description": "Persistent memory storage across conversations",
+      "platforms": ["claude", "lmstudio", "anythingllm"]
+    },
+    "filesystem": {
+      "type": "extension",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\DevWorkspace"
+      ],
+      "description": "File system access for reading/writing files",
+      "platforms": ["lmstudio", "anythingllm"],
+      "note": "Claude uses this as a built-in extension"
+    },
+    "sequential-thinking": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "description": "Enhanced reasoning with step-by-step thinking",
+      "platforms": ["claude", "lmstudio", "anythingllm"]
+    },
+    "brave-search": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "description": "Web search via Brave Search API",
+      "platforms": ["claude", "lmstudio", "anythingllm"],
+      "requiresApiKey": true
+    },
+    "exa-search": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ],
+      "env": {
+        "EXA_API_KEY": "${EXA_API_KEY}"
+      },
+      "description": "Neural search engine for finding similar content",
+      "platforms": ["claude", "lmstudio", "anythingllm"],
+      "requiresApiKey": true
+    },
+    "clickup": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@taazkareem/clickup-mcp-server"
+      ],
+      "env": {
+        "CLICKUP_API_KEY": "${CLICKUP_API_KEY}",
+        "CLICKUP_TEAM_ID": "${CLICKUP_TEAM_ID}"
+      },
+      "description": "ClickUp project management integration",
+      "platforms": ["claude", "lmstudio", "anythingllm"],
+      "requiresApiKey": true
+    }
+  },
+  "apiKeys": {
+    "_comment": "API keys should be stored in C:\\DevWorkspace\\.env",
+    "BRAVE_API_KEY": {
+      "description": "Brave Search API key from https://brave.com/search/api/",
+      "required": true,
+      "servers": ["brave-search"]
+    },
+    "EXA_API_KEY": {
+      "description": "Exa Search API key from https://exa.ai/",
+      "required": true,
+      "servers": ["exa-search"]
+    },
+    "CLICKUP_API_KEY": {
+      "description": "ClickUp API key from Settings > Apps",
+      "required": true,
+      "servers": ["clickup"]
+    },
+    "CLICKUP_TEAM_ID": {
+      "description": "ClickUp Team ID from workspace URL",
+      "required": true,
+      "servers": ["clickup"]
+    }
+  },
+  "platformPaths": {
+    "claude": "%APPDATA%\\Claude\\claude_desktop_config.json",
+    "lmstudio": "%USERPROFILE%\\.lmstudio\\mcp.json",
+    "anythingllm": "%APPDATA%\\anythingllm\\plugins\\anythingllm_mcp_servers.json"
+  }
+}

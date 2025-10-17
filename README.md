@@ -19,9 +19,12 @@ This repo provides a complete MCP server setup for **Claude Desktop**, **LM Stud
 - servers/mcp-playwright — Local Playwright server
 - scripts/setup-all.ps1 — Complete setup script for all 8 servers
 - scripts/install-global-servers.ps1 — Install NPM-based servers
+- scripts/sync-mcp-configs.ps1 — **Centralized config management script** (NEW!)
+- config/master-mcp-config.json — **Master configuration file** (NEW!)
 - examples/claude_desktop_config.complete.json — Complete Claude MCP config
 - examples/lm_studio_mcp.json — LM Studio configuration
 - examples/anythingllm_mcp_servers.json — AnythingLLM configuration
+- docs/CONFIG_MANAGEMENT.md — **How to manage configs across all platforms** (NEW!)
 - docs/LM_STUDIO_SETUP.md — Complete LM Studio setup guide
 - docs/ANYTHINGLLM_VS_LMSTUDIO.md — Platform comparison guide
 - docs/BEST_MODELS_FOR_AUTOMATION.md — Model recommendations for automation tasks
@@ -209,6 +212,82 @@ npm install -g @modelcontextprotocol/server-filesystem
 - Keys can be stored in `.env` file (for development)
 - Or set as system environment variables (for production)
 - Referenced in Claude config's `env` section per server
+
+## 🔧 Configuration Management (NEW!)
+
+### Centralized Config System
+
+Instead of manually editing configs for each platform, use our **centralized configuration system**:
+
+```powershell
+# Sync all platforms from master config
+cd C:\DevWorkspace\MCP_1\scripts
+.\sync-mcp-configs.ps1
+
+# Sync specific platform only
+.\sync-mcp-configs.ps1 -Platform claude
+.\sync-mcp-configs.ps1 -Platform lmstudio
+.\sync-mcp-configs.ps1 -Platform anythingllm
+
+# Preview changes without applying
+.\sync-mcp-configs.ps1 -DryRun
+```
+
+### Master Configuration File
+
+**`config/master-mcp-config.json`** is the single source of truth for all MCP servers across all platforms.
+
+**Benefits:**
+- ✅ Edit once, sync everywhere
+- ✅ Automatic API key substitution from `.env`
+- ✅ Automatic backups before updates
+- ✅ Platform-specific filtering (Claude, LM Studio, AnythingLLM)
+- ✅ Version controlled and easily shareable
+
+### How It Works
+
+1. **Edit master config**: Update `config/master-mcp-config.json`
+2. **Run sync script**: `.\scripts\sync-mcp-configs.ps1`
+3. **Restart apps**: Close and reopen Claude/LM Studio/AnythingLLM
+4. **Commit changes**: 
+   ```powershell
+   git add config\ examples\
+   git commit -m "Update MCP server configurations"
+   git push origin main
+   ```
+
+### Complete Documentation
+
+📘 **[Configuration Management Guide](docs/CONFIG_MANAGEMENT.md)**
+
+Learn how to:
+- Add new MCP servers to all platforms at once
+- Update existing server configurations
+- Manage API keys securely
+- Create automated sync workflows
+- Troubleshoot config issues
+- Set up config backups and version control
+
+### Git Workflow for Updates
+
+```powershell
+# Pull latest configs
+git pull origin main
+
+# Sync to apply updates
+.\scripts\sync-mcp-configs.ps1
+
+# Make changes to master config
+code config\master-mcp-config.json
+
+# Sync all platforms
+.\scripts\sync-mcp-configs.ps1
+
+# Test and commit
+git add config\ examples\ docs\
+git commit -m "Update MCP configurations"
+git push origin main
+```
 
 ## Contributing
 Contributions welcome! Please:
