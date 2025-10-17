@@ -12,20 +12,18 @@ This repo bundles two MCP servers you can use with Claude Desktop on Windows:
 - examples/claude_desktop_config.example.json — ready-to-copy Claude MCP config
 
 ## Quick Start (Windows)
-```powershell
-# 1) Clone and open
-cd C:\DevWorkspace
-git clone https://github.com/<you>/MCP_1.git
-cd MCP_1
+1) Clone and open
+- Create C:\\DevWorkspace if it doesn't exist
+- Clone: https://github.com/evoluzion25/MCP_1.git
+- Open the MCP_1 folder
 
-# 2) Run setup
-Set-ExecutionPolicy Bypass -Scope Process -Force
-./scripts/setup-all.ps1
+2) Run setup
+- Temporarily allow the script to run in this session
+- Execute scripts/setup-all.ps1
 
-# 3) Restart Claude Desktop and use tools:
-#    mcp-puppeteer.navigate, mcp-puppeteer.screenshot, mcp-puppeteer.getContent
-#    mcp-playwright.navigate, mcp-playwright.screenshot, mcp-playwright.getContent
-```
+3) Restart Claude Desktop and use tools:
+- mcp-puppeteer.navigate, mcp-puppeteer.screenshot, mcp-puppeteer.getContent
+- mcp-playwright.navigate, mcp-playwright.screenshot, mcp-playwright.getContent
 
 ## Dependencies
 - Node.js 18+
@@ -35,4 +33,4 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 - Enterprise networks may block browser downloads:
   - Puppeteer: set PUPPETEER_EXECUTABLE_PATH to installed Chrome/Edge
   - Playwright: set PLAYWRIGHT_CHANNEL=msedge (default in setup) or use executablePath
-- If Claude can’t launch servers, ensure %APPDATA%\Claude\claude_desktop_config.json has correct absolute Node path
+- If Claude can’t launch servers, ensure %APPDATA%\\Claude\\claude_desktop_config.json has correct absolute Node path
