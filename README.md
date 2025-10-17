@@ -1,6 +1,6 @@
 # MCP_1 - Complete MCP Server Suite
 
-This repo provides a complete MCP server setup for Claude Desktop on Windows with 8 powerful servers:
+This repo provides a complete MCP server setup for **Claude Desktop** and **LM Studio** on Windows with 8 powerful servers:
 
 ## 🎯 Core MCP Servers (Local)
 - **mcp-puppeteer** — Chromium automation via Puppeteer
@@ -18,6 +18,10 @@ This repo provides a complete MCP server setup for Claude Desktop on Windows wit
 - servers/mcp-puppeteer — Local Puppeteer server
 - servers/mcp-playwright — Local Playwright server
 - scripts/setup-all.ps1 — Complete setup script for all 8 servers
+- scripts/install-global-servers.ps1 — Install NPM-based servers
+- examples/claude_desktop_config.complete.json — Complete Claude MCP config with all 8 servers
+- examples/lm_studio_mcp.json — LM Studio configuration
+- docs/LM_STUDIO_SETUP.md — Complete LM Studio setup guide
 - scripts/install-global-servers.ps1 — Install NPM-based servers
 - examples/claude_desktop_config.example.json — Complete Claude MCP config with all 8 servers
 
@@ -90,6 +94,26 @@ In Claude Desktop, you should now see these tools available:
 - **Search**: brave_web_search, exa_search
 - **Task Management**: clickup tools (list_tasks, create_task, etc.)
 - **Problem Solving**: sequential_thinking
+
+## 🖥️ Using with LM Studio
+
+Want to use these MCP servers with local models in LM Studio? See the complete guide:
+
+**📘 [LM Studio Setup Guide](docs/LM_STUDIO_SETUP.md)**
+
+Quick start:
+1. Install LM Studio 0.3.17+ from [lmstudio.ai](https://lmstudio.ai/download)
+2. Run the setup script above (same as Claude Desktop)
+3. Copy `examples/lm_studio_mcp.json` content to LM Studio's MCP config
+   - Open LM Studio → Program tab → Install → Edit mcp.json
+4. Restart LM Studio
+
+**Use Cases:**
+- ✅ Login to websites and download PDFs/documents (100% local & private)
+- ✅ Automate form filling and data extraction
+- ✅ Web scraping and content retrieval
+- ✅ Task management integration
+- ✅ Everything stays on your machine!
 
 ## Dependencies
 - Node.js 18+

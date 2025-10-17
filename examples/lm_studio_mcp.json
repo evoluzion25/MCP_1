@@ -1,0 +1,61 @@
+{
+  "mcpServers": {
+    "mcp-puppeteer": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-puppeteer\\src\\server.js"
+      ]
+    },
+    "mcp-playwright": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-playwright\\src\\server.js"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "BSAjKboJpJrVKmf8AMV87rCYyo3rowy"
+      }
+    },
+    "exa-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ],
+      "env": {
+        "EXA_API_KEY": "296048a9-6539-4352-957b-3370ed1b3fc2"
+      }
+    },
+    "clickup": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@taazkareem/clickup-mcp-server"
+      ],
+      "env": {
+        "CLICKUP_API_KEY": "pk_4234856_T5NJ7PUFZMPGN3KYMDSQIDX3XAO85O23",
+        "CLICKUP_TEAM_ID": "2218645"
+      }
+    }
+  }
+}
