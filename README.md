@@ -24,6 +24,19 @@ This repo provides a complete MCP server setup for **Claude Desktop**, **LM Stud
 - examples/anythingllm_mcp_servers.json — AnythingLLM configuration
 - docs/LM_STUDIO_SETUP.md — Complete LM Studio setup guide
 - docs/ANYTHINGLLM_VS_LMSTUDIO.md — Platform comparison guide
+- docs/BEST_MODELS_FOR_AUTOMATION.md — Model recommendations for automation tasks
+
+## 🤖 Choosing the Right Model
+
+Not sure which LLM model to use for automation? See our complete guide:
+
+**📘 [Best Models for Automation & Data Collection](docs/BEST_MODELS_FOR_AUTOMATION.md)**
+
+**Quick picks:**
+- **Best Overall:** DeepSeek R1 14B - Complex reasoning & multi-step automation
+- **Best Tool Use:** Qwen 2.5 14B - Excellent function calling & data extraction
+- **Best Lightweight:** Llama 3.1 8B - Fast & efficient for simple tasks
+- **Best If You Have Power:** Llama 3.3 70B - Maximum capability
 
 ## Quick Start (Windows)
 
