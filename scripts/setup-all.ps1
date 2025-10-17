@@ -8,7 +8,7 @@ if (-not $NodePath) { throw "Node not found on PATH. Install Node.js 18+ first."
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path | Split-Path -Parent
 Write-Host "Repo root: $root"
 
-# Install deps
+# Install local server dependencies
 foreach ($srv in @("mcp-puppeteer","mcp-playwright")) {
   $dir = Join-Path $root "servers" | Join-Path -ChildPath $srv
   Write-Host "Installing: $dir" -ForegroundColor Cyan
@@ -18,6 +18,15 @@ foreach ($srv in @("mcp-puppeteer","mcp-playwright")) {
     npx --yes playwright install
   }
   Pop-Location
+}
+
+# Install global NPM-based MCP servers
+Write-Host "`nInstalling NPM-based MCP servers globally..." -ForegroundColor Cyan
+$globalServersScript = Join-Path $root "scripts\install-global-servers.ps1"
+if (Test-Path $globalServersScript) {
+  & $globalServersScript
+} else {
+  Write-Host "Warning: install-global-servers.ps1 not found, skipping global servers" -ForegroundColor Yellow
 }
 
 # Write Claude config example and optionally apply
