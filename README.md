@@ -21,6 +21,7 @@ This repo provides a complete MCP server setup for **Claude Desktop**, **LM Stud
 - scripts/install-global-servers.ps1 — Install NPM-based servers
 - scripts/sync-mcp-configs.ps1 — **Centralized config management script** (NEW!)
 - config/master-mcp-config.json — **Master configuration file** (NEW!)
+- **QUICK_START_CONFIG.md** — **Quick reference for config management** (NEW!)
 - examples/claude_desktop_config.complete.json — Complete Claude MCP config
 - examples/lm_studio_mcp.json — LM Studio configuration
 - examples/anythingllm_mcp_servers.json — AnythingLLM configuration
@@ -214,6 +215,8 @@ npm install -g @modelcontextprotocol/server-filesystem
 - Referenced in Claude config's `env` section per server
 
 ## 🔧 Configuration Management (NEW!)
+
+**📘 [Quick Start Guide](QUICK_START_CONFIG.md)** - Essential commands and workflows
 
 ### Centralized Config System
 
