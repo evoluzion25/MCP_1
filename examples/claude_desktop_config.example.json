@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mcp-puppeteer": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-puppeteer\\src\\server.js"
+      ]
+    },
+    "mcp-playwright": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\DevWorkspace\\MCP_1\\servers\\mcp-playwright\\src\\server.js"
+      ]
+    }
+  }
+}
