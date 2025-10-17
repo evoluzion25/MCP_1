@@ -1,6 +1,6 @@
 # MCP_1 - Complete MCP Server Suite
 
-This repo provides a complete MCP server setup for **Claude Desktop** and **LM Studio** on Windows with 8 powerful servers:
+This repo provides a complete MCP server setup for **Claude Desktop**, **LM Studio**, and **AnythingLLM** on Windows with 8 powerful servers:
 
 ## 🎯 Core MCP Servers (Local)
 - **mcp-puppeteer** — Chromium automation via Puppeteer
@@ -19,11 +19,11 @@ This repo provides a complete MCP server setup for **Claude Desktop** and **LM S
 - servers/mcp-playwright — Local Playwright server
 - scripts/setup-all.ps1 — Complete setup script for all 8 servers
 - scripts/install-global-servers.ps1 — Install NPM-based servers
-- examples/claude_desktop_config.complete.json — Complete Claude MCP config with all 8 servers
+- examples/claude_desktop_config.complete.json — Complete Claude MCP config
 - examples/lm_studio_mcp.json — LM Studio configuration
+- examples/anythingllm_mcp_servers.json — AnythingLLM configuration
 - docs/LM_STUDIO_SETUP.md — Complete LM Studio setup guide
-- scripts/install-global-servers.ps1 — Install NPM-based servers
-- examples/claude_desktop_config.example.json — Complete Claude MCP config with all 8 servers
+- docs/ANYTHINGLLM_VS_LMSTUDIO.md — Platform comparison guide
 
 ## Quick Start (Windows)
 
@@ -114,6 +114,28 @@ Quick start:
 - ✅ Web scraping and content retrieval
 - ✅ Task management integration
 - ✅ Everything stays on your machine!
+
+## 🎨 Using with AnythingLLM
+
+Want document management + RAG + AI agents with your MCP servers?
+
+**📘 [AnythingLLM vs LM Studio Comparison](docs/ANYTHINGLLM_VS_LMSTUDIO.md)**
+
+Quick start:
+1. Install AnythingLLM 1.9.0+ from [useanything.com](https://anythingllm.com/download)
+2. Run the setup script above (same as Claude Desktop)
+3. Copy `examples/anythingllm_mcp_servers.json` to AnythingLLM's plugins directory
+   - Windows: `%APPDATA%\anythingllm-desktop\storage\plugins\anythingllm_mcp_servers.json`
+4. Restart AnythingLLM
+
+**AnythingLLM Advantages:**
+- 📚 Built-in vector database for document RAG
+- 🗂️ Workspace organization (like Notion)
+- 🤖 Visual AI agent workflows
+- 🎨 Better MCP server management UI
+- 🔄 Can use LM Studio as the model backend!
+
+**Recommended:** Use **LM Studio** to host models + **AnythingLLM** for document workflows = Best of both worlds!
 
 ## Dependencies
 - Node.js 18+
